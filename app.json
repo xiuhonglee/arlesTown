@@ -1,0 +1,27 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/audio/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "阿尔勒小镇",
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#eee",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "图片",
+      "iconPath": "assets/picture.png",
+      "selectedIconPath": "assets/picture-active.png"
+    }, {
+      "pagePath": "pages/audio/index",
+      "text": "音频",
+      "iconPath": "assets/audio.png",
+      "selectedIconPath": "assets/audio-active.png"
+    }]
+  }
+}
