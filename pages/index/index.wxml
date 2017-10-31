@@ -1,13 +1,8 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <button type="default" size="default" class="f-item f-preload" hover-class="button-hover" bindtap="$redirect" data-href="/pages/preload/index">预加载</button>
+  <button type="default" size="default" class="f-item f-preload" hover-class="button-hover" bindtap="$redirect" data-href="/pages/filter/index">滤镜</button>
+  <button type="default" size="default" class="f-item f-preload" hover-class="button-hover" bindtap="$redirect" data-href="/pages/cut/index">裁剪</button>
 </view>
+
+<view class="for-test" wx:if="{{ isSupportRequestAnimation }}">Is support RequestAnimation</view>

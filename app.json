@@ -1,6 +1,10 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/preload/index",
+    "pages/filter/index",
+    "pages/cut/index",
+
     "pages/audio/index"
   ],
   "window":{
@@ -9,7 +13,7 @@
     "navigationBarTitleText": "阿尔勒小镇",
     "navigationBarTextStyle":"white",
     "backgroundColor": "#eee",
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [{
