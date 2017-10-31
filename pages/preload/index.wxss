@@ -1,14 +1,32 @@
 .img-wrap {
-  margin-bottom: 10px;
   width: 750rpx;
-  height: 468rpx;
-  background: #ececec;
+  height: 100%;
+  background: #333;
 }
 
 .load-btn {
   width: 80%;
 }
 
+.img-res {
+  width: 750rpx;
+  height: 1195rpx;
+}
+.load-btn {
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150rpx;
+  height: 150rpx;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50%;
+  background-color: #ff7d14;
+  box-shadow: -5px 5px 5px #666;
+}
 .button-hover {
   background-color: #a6e22e;
 }

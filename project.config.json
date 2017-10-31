@@ -13,7 +13,14 @@
 	"condition": {
 		"weapp": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "水印",
+					"pathName": "pages/watermark/index",
+					"query": ""
+				}
+			]
 		},
 		"search": {
 			"current": -1,

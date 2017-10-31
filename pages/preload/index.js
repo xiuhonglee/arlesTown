@@ -2,8 +2,8 @@
 
 import Preload from '../../components/preload/index'
 
-const thumd = 'https://s10.mogucdn.com/mlcdn/c45406/171030_003f3hbcjkbe8jdg411b79a2kgje7_80x50.jpg'
-const origin = 'https://s10.mogucdn.com/mlcdn/c45406/171030_30fbddh7jcgd4i3lf6890cfga0kdk_3200x2000.jpg'
+const thumb = 'https://s10.mogucdn.com/mlcdn/c45406/171031_2d642j2jbffie2gd6kh2hlg87e1j9_30x48.png'
+const origin = 'https://s10.mogucdn.com/mlcdn/c45406/171031_427c5idljdagfk2g1al753e4l641l_750x1195.png'
 
 Page({
   data: {
@@ -14,14 +14,16 @@ Page({
   onLoad() {
     this.imgLoader = new Preload(this)
   },
+
   loadImage() {
+
     this.setData({
-      imgUrl: thumd
-    })
+      imgUrl: thumb
+    });
 
     //同时对原图进行预加载，加载成功后再替换
     this.imgLoader.load(origin, (err, data) => {
-      console.log('图片加载完成', err, data.src)
+      
       this.setData({
         msg: '大图加载完成~'
       })

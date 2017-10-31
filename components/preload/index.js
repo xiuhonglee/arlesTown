@@ -1,7 +1,5 @@
 /**
  * 图片预加载组件
- *
- * @author HuiminLiu
  */
 
 export default class ImgLoader {
@@ -13,7 +11,7 @@ export default class ImgLoader {
     this.defaultCallback = defaultCallback || function() {}
     this.callbacks = {}
     this.imgInfo = {}
-
+    
     this.page.data.imgLoadList = [] //下载队列
     this.page._imgOnLoad = this._imgOnLoad.bind(this)
     this.page._imgOnLoadError = this._imgOnLoadError.bind(this)
@@ -55,7 +53,6 @@ export default class ImgLoader {
     let src = ev.currentTarget.dataset.src,
       width = ev.detail.width,
       height = ev.detail.height
-
     //记录已下载图片的尺寸信息
     this.imgInfo[src] = {
       width,

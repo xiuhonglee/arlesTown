@@ -1,10 +1,8 @@
 Page({
 
-  data: {
-    isSupportRequestAnimation: false
-  },
+  data: {},
 
-  //事件处理函数
+  // 事件处理函数
   $redirect: function(option) {
     wx.navigateTo({
       url: option.target.dataset['href']
@@ -12,9 +10,6 @@ Page({
   },
 
   onLoad: function() {
-    let isSupportRequestAnimation = requestAnimationFrame;
-    this.setData({
-      isSupportRequestAnimation: true
-    });
+    
   }
 })

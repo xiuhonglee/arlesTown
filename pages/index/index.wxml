@@ -1,8 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <button type="default" size="default" class="f-item f-preload" hover-class="button-hover" bindtap="$redirect" data-href="/pages/preload/index">预加载</button>
-  <button type="default" size="default" class="f-item f-preload" hover-class="button-hover" bindtap="$redirect" data-href="/pages/filter/index">滤镜</button>
-  <button type="default" size="default" class="f-item f-preload" hover-class="button-hover" bindtap="$redirect" data-href="/pages/cut/index">裁剪</button>
+  <button type="default" size="default" class="f-item f-img-deal" hover-class="button-hover" bindtap="$redirect" data-href="/pages/preload/index">预加载</button>
+  <button type="default" size="default" class="f-item f-img-deal" hover-class="button-hover" bindtap="$redirect" data-href="/pages/cut/index">裁剪</button>
+  <button type="default" size="default" class="f-item f-img-deal" hover-class="button-hover" bindtap="$redirect" data-href="/pages/watermark/index">水印</button>
 </view>
-
-<view class="for-test" wx:if="{{ isSupportRequestAnimation }}">Is support RequestAnimation</view>

@@ -15,7 +15,7 @@
 .f-item {
   margin: 30rpx 0;
 }
-.f-preload {
+.f-img-deal {
   width: 85%;
 }
 
