@@ -1,19 +1,36 @@
 // 获取应用实例
 let app = getApp();
 
-console.log(app)
-
 const systemInfo = wx.getSystemInfoSync();
 
 Page({
 
   data: {
     windowWidth: systemInfo.windowWidth,
-    windowHeight: systemInfo.windowHeight
+    windowHeight: systemInfo.windowHeight,
+    userInfo: {}
   },
 
   onLoad() {
     this.ctx = wx.createCanvasContext('canvas')
+
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
   },
 
   chooseImage() {
@@ -38,14 +55,14 @@ Page({
 
             self.ctx.drawImage(res2.path, 0, 0, _windowWidth, _windowWidth * res2.height / res2.width)
 
-            for (let i = -_windowWidth; i < _windowWidth * 3; i += 150) {
-              for (let j = -_windowHeight; j < _windowHeight * 3; j += 150) {
+            for (let i = - _windowWidth; i < _windowWidth * 3; i += 150) {
+              for (let j = -2 * _windowHeight; j < _windowHeight * 3; j += 150) {
                 self.ctx.save()
                 self.ctx.rotate(-300 / Math.PI / 180)
                 self.ctx.translate(i, j);
                 self.ctx.setFillStyle('#bbbbbb')
                 self.ctx.setFontSize(15)
-                self.ctx.fillText('修鸿', 0, 0)
+                self.ctx.fillText(self.data.userInfo.nickName, 0, 0)
                 self.ctx.restore()
               }
             }
@@ -57,9 +74,9 @@ Page({
               x: 0,
               y: 0,
               width: _windowWidth,
-              height: _windowHeight,
-              destWidth: res2.width,
-              destHeight: res2.height,
+              height: _windowWidth * res2.height / res2.width,
+              destWidth: _windowWidth,
+              destHeight: _windowWidth * res2.height / res2.width,
               canvasId: 'canvas',
               success: function(res) {
                 let arr = []
