@@ -12,8 +12,15 @@
 	"projectname": "%E9%98%BF%E5%B0%94%E5%8B%92%E5%B0%8F%E9%95%87",
 	"condition": {
 		"weapp": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "水印",
+					"pathName": "pages/watermark/index",
+					"query": ""
+				}
+			]
 		},
 		"search": {
 			"current": -1,

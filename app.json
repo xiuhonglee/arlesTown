@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/preload/index",
+    "pages/cut/index",
+    "pages/watermark/index",
     "pages/audio/index"
   ],
   "window":{

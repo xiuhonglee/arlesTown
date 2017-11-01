@@ -1,0 +1,32 @@
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #eee;
+}
+
+.watermark {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  overflow: hidden;
+}
+.ctrl {
+  position: fixed;
+  left: 50%;
+  bottom: 30rpx;
+  margin-left: -75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160rpx;
+  height: 160rpx;
+  color: #fff;
+  font-size: 90rpx;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #ff7d14;
+  box-shadow: -5px 5px 5px #666;
+  z-index: 99;
+}

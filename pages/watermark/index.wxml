@@ -1,0 +1,21 @@
+<!-- 1. 防止页面滚动 scroll-view -->
+<!-- 2. 视口高度用windowHeight -->
+<!-- 3. canvas图片被拉伸
+  3.1 查看基础库版本 wx.getSystemInfoSync().SDKVersion
+  3.2 获取图片信息(sdk:1.6.0) 开发者工具: 获取本地图片信息失败 真机(iOS)可以获取
+  3.3 canvas.drawImage(img, dx, dy, dW, dH)
+  3.4 根据图片真实宽高按比例缩放 self.ctx.drawImage(img, 0, 0, windowWidth, windowWidth * img.height / img.width)
+-->
+
+<!-- 4. 添加水印 
+     4.1  canvas上写字
+-->
+<!-- 5. canvas导出图片 
+     5.1 canvasToTempFilePath
+-->
+<!-- 6. 预览图片尺寸问题 -->
+
+<view class="watermark" style="width: {{ windowWidth }}px; height: {{ windowHeight * .8  }}px;">
+  <canvas style="width: {{ imageWidth }}rpx; height: {{ imageHeight }}rpx; max-height: {{ windowHeight * .8 }}px" canvas-id="canvas" disable-scroll="true" bindtouchstart="preview"></canvas>
+  <view class="ctrl" bindtap="chooseImage">+</view>
+</view>

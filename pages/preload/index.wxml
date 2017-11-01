@@ -1,0 +1,9 @@
+<view class="img-wrap">
+    <image class="img-res" wx:if="{{ imgUrl }}" src="{{ imgUrl }}" />
+</view>
+
+<button class="load-btn" hover-class="button-hover" bindtap="loadImage">Load</button>
+
+<!-- 引入图片预加载组件 -->
+<import src="../../components/preload/index.wxml"/>
+<template is="preload" data="{{ imgLoadList }}"></template>
