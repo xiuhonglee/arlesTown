@@ -4,6 +4,7 @@
     "pages/preload/index",
     "pages/cut/index",
     "pages/watermark/index",
+    "pages/matrix/index",
     "pages/audio/index"
   ],
   "window":{

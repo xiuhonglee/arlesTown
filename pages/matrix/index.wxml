@@ -1,0 +1,9 @@
+<!-- 1. 矩阵转换 -->
+<!-- 2. 设置canvas宽高 -->
+<!-- 3. 画矩形 -->
+<!-- 4. 旋转rotate: 始终以canvas的起点为旋转中心 -->
+
+<view class="matrix">
+  <canvas canvas-id="canvas" style="width: 300px; height: 300px;"></canvas>
+  <div class="origin-pos"></div>
+</view>
