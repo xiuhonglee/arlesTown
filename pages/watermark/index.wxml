@@ -16,6 +16,6 @@
 <!-- 6. 预览图片尺寸问题 -->
 
 <view class="watermark" style="width: {{ windowWidth }}px; height: {{ windowHeight * .8  }}px;">
-  <canvas style="width: {{ imageWidth }}rpx; height: {{ imageHeight }}rpx; max-height: {{ windowHeight * .8 }}px" canvas-id="canvas" disable-scroll="true"></canvas>
+  <canvas style="width: {{ imageWidth }}rpx; height: {{ imageHeight }}rpx; max-height: {{ windowHeight * .8 }}px" canvas-id="canvas" disable-scroll="true" bindtouchstart="preview"></canvas>
   <view class="ctrl" bindtap="chooseImage">+</view>
 </view>

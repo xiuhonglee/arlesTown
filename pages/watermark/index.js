@@ -52,21 +52,16 @@ Page({
 
         // 2. 获取图片信息
         wx.getImageInfo({
+          count: 1,
           src: res.tempFilePaths[0],
           // src: 'https://s10.mogucdn.com/mlcdn/c45406/171101_1dk69kbj5ba97d38gg9c7g97ai393_375x500.jpg',
           // src: 'https://s10.mogucdn.com/mlcdn/c45406/171101_8d92jcai3g13c9dg6iaa703fe4647_720x721.jpg',
           success: function(res2) {
 
-            let _windowWidth = self.data.windowWidth
-            let _windowHeight = self.data.windowHeight
-
             self.setData({
               imageWidth: res2.width,
               imageHeight: res2.height
             })
-
-            console.log('imageWidth', res2.width)
-            console.log('imageHeight', res2.height)
 
             self.ctx.drawImage(res2.path, 0, 0, res2.width / _dpr, res2.height / _dpr)
 
@@ -81,28 +76,31 @@ Page({
                 self.ctx.restore()
               }
             }
-
             self.ctx.draw()
-
-            // 导出图片
-            // wx.canvasToTempFilePath({
-            //   x: 0,
-            //   y: 0,
-            //   width: _windowWidth,
-            //   height: _windowWidth * res2.height / res2.width,
-            //   destWidth: _windowWidth,
-            //   destHeight: _windowWidth * res2.height / res2.width,
-            //   canvasId: 'canvas',
-            //   success: function(res) {
-            //     let arr = []
-            //     arr.push(res.tempFilePath)
-            //     wx.previewImage({
-            //       current: res.tempFilePath,
-            //       urls: arr
-            //     })
-            //   }
-            // })
           }
+        })
+      }
+    })
+  },
+
+
+  preview() {
+    let self = this
+    // 导出图片
+    wx.canvasToTempFilePath({
+      x: 0,
+      y: 0,
+      width: _windowWidth,
+      height: _windowWidth * self.data.imageHeight / self.data.imageWidth,
+      destWidth: _windowWidth,
+      destHeight: _windowWidth * self.data.imageHeight / self.data.imageWidth,
+      canvasId: 'canvas',
+      success: function(res) {
+        let arr = []
+        arr.push(res.tempFilePath)
+        wx.previewImage({
+          current: res.tempFilePath,
+          urls: arr
         })
       }
     })
