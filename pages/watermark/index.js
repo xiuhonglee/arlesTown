@@ -1,13 +1,19 @@
 // 获取应用实例
 let app = getApp();
 
-const systemInfo = wx.getSystemInfoSync();
+const systemInfo = wx.getSystemInfoSync()
+
+const _windowWidth = systemInfo.windowWidth >>> 0
+const _windowHeight = systemInfo.windowHeight >>> 0
+const _dpr = systemInfo.pixelRatio
 
 Page({
 
   data: {
-    windowWidth: systemInfo.windowWidth,
-    windowHeight: systemInfo.windowHeight,
+    windowWidth: _windowWidth,
+    windowHeight: _windowHeight,
+    imageWidth: 0,
+    imageHeight: 0,
     userInfo: {}
   },
 
@@ -47,20 +53,29 @@ Page({
         // 2. 获取图片信息
         wx.getImageInfo({
           src: res.tempFilePaths[0],
-          // src: 'https://s10.mogucdn.com/mlcdn/c45406/171031_427c5idljdagfk2g1al753e4l641l_750x1195.png',
+          // src: 'https://s10.mogucdn.com/mlcdn/c45406/171101_1dk69kbj5ba97d38gg9c7g97ai393_375x500.jpg',
+          // src: 'https://s10.mogucdn.com/mlcdn/c45406/171101_8d92jcai3g13c9dg6iaa703fe4647_720x721.jpg',
           success: function(res2) {
 
             let _windowWidth = self.data.windowWidth
             let _windowHeight = self.data.windowHeight
 
-            self.ctx.drawImage(res2.path, 0, 0, _windowWidth, _windowWidth * res2.height / res2.width)
+            self.setData({
+              imageWidth: res2.width,
+              imageHeight: res2.height
+            })
 
-            for (let i = - _windowWidth; i < _windowWidth * 3; i += 150) {
-              for (let j = -2 * _windowHeight; j < _windowHeight * 3; j += 150) {
+            console.log('imageWidth', res2.width)
+            console.log('imageHeight', res2.height)
+
+            self.ctx.drawImage(res2.path, 0, 0, res2.width / _dpr, res2.height / _dpr)
+
+            for (let i = - _windowWidth; i < _windowWidth * 2; i += 100) {
+              for (let j = -_windowHeight * .5; j < _windowHeight * 1.5; j += 100) {
                 self.ctx.save()
                 self.ctx.rotate(-300 / Math.PI / 180)
                 self.ctx.translate(i, j);
-                self.ctx.setFillStyle('#bbbbbb')
+                self.ctx.setFillStyle('#aaaaaa')
                 self.ctx.setFontSize(15)
                 self.ctx.fillText(self.data.userInfo.nickName, 0, 0)
                 self.ctx.restore()
@@ -70,23 +85,23 @@ Page({
             self.ctx.draw()
 
             // 导出图片
-            wx.canvasToTempFilePath({
-              x: 0,
-              y: 0,
-              width: _windowWidth,
-              height: _windowWidth * res2.height / res2.width,
-              destWidth: _windowWidth,
-              destHeight: _windowWidth * res2.height / res2.width,
-              canvasId: 'canvas',
-              success: function(res) {
-                let arr = []
-                arr.push(res.tempFilePath)
-                wx.previewImage({
-                  current: res.tempFilePath,
-                  urls: arr
-                })
-              }
-            })
+            // wx.canvasToTempFilePath({
+            //   x: 0,
+            //   y: 0,
+            //   width: _windowWidth,
+            //   height: _windowWidth * res2.height / res2.width,
+            //   destWidth: _windowWidth,
+            //   destHeight: _windowWidth * res2.height / res2.width,
+            //   canvasId: 'canvas',
+            //   success: function(res) {
+            //     let arr = []
+            //     arr.push(res.tempFilePath)
+            //     wx.previewImage({
+            //       current: res.tempFilePath,
+            //       urls: arr
+            //     })
+            //   }
+            // })
           }
         })
       }

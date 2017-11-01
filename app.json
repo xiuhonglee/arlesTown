@@ -8,9 +8,9 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "阿尔勒小镇",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle":"white",
     "backgroundColor": "#eee",
     "enablePullDownRefresh": false
   },
