@@ -12,11 +12,11 @@ page {
   background-color: #333;
   overflow: hidden;
 }
-.ctrl {
+
+.btn {
   position: fixed;
-  left: 50%;
+  left: calc(50% - 75rpx);
   bottom: 30rpx;
-  margin-left: -75rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,8 +25,33 @@ page {
   color: #fff;
   font-size: 90rpx;
   font-weight: bold;
+  transform: translateX(0);
   border-radius: 50%;
+  transition: all .6s ease-out;
+}
+.choose {
   background-color: #ff7d14;
   box-shadow: -5px 5px 5px #666;
-  z-index: 99;
+  z-index: 3;
+}
+
+.reset {
+  opacity: 0;
+  background-color: rgba(244, 244, 244, .6);
+  box-shadow: -5px 5px 5px #999;
+  z-index: 2;
+}
+.preview {
+  opacity: 0;
+  background-color: rgba(244, 244, 244, .6);
+  box-shadow: -5px 5px 5px #999;
+  z-index: 1;
+}
+.reset.show {
+  opacity: 1;
+  transform: translateX(-120px);
+}
+.preview.show {
+  opacity: 1;
+  transform: translateX(120px);
 }
