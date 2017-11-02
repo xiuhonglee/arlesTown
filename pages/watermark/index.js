@@ -14,6 +14,8 @@ Page({
     windowHeight: _windowHeight,
     imageWidth: 0,
     imageHeight: 0,
+    menu: 'choose',
+    subMenu: '',
     userInfo: {}
   },
 
@@ -53,14 +55,15 @@ Page({
         // 2. 获取图片信息
         wx.getImageInfo({
           count: 1,
-          src: res.tempFilePaths[0],
-          // src: 'https://s10.mogucdn.com/mlcdn/c45406/171101_1dk69kbj5ba97d38gg9c7g97ai393_375x500.jpg',
+          // src: res.tempFilePaths[0],
+          src: 'https://s10.mogucdn.com/mlcdn/c45406/171101_1dk69kbj5ba97d38gg9c7g97ai393_375x500.jpg',
           // src: 'https://s10.mogucdn.com/mlcdn/c45406/171101_8d92jcai3g13c9dg6iaa703fe4647_720x721.jpg',
           success: function(res2) {
-
             self.setData({
               imageWidth: res2.width,
-              imageHeight: res2.height
+              imageHeight: res2.height,
+              menu: '',
+              subMenu: 'show',
             })
 
             self.ctx.drawImage(res2.path, 0, 0, res2.width / _dpr, res2.height / _dpr)
@@ -83,9 +86,23 @@ Page({
     })
   },
 
+  undo() {
+    this.setData({
+      subMenu: '',
+      menu: 'choose'
+    })
+    this.ctx.clearRect(0, 0, _windowWidth, _windowHeight)
+    this.ctx.draw()
+  },
 
   preview() {
     let self = this
+
+    this.setData({
+      subMenu: '',
+      menu: 'choose'
+    })
+
     // 导出图片
     wx.canvasToTempFilePath({
       x: 0,

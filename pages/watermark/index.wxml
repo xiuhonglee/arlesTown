@@ -17,5 +17,11 @@
 
 <view class="watermark" style="width: {{ windowWidth }}px; height: {{ windowHeight * .8  }}px;">
   <canvas style="width: {{ imageWidth }}rpx; height: {{ imageHeight }}rpx; max-height: {{ windowHeight * .8 }}px" canvas-id="canvas" disable-scroll="true" bindtouchstart="preview"></canvas>
-  <view class="ctrl" bindtap="chooseImage">+</view>
+  <view class="btn {{ menu }}" bindtap="chooseImage"><text wx:if="{{ menu === 'choose' }}">+</text></view>
+  <view class="btn reset {{ subMenu }}" bindtap="undo">
+    <image mode="aspectFit" src="https://s10.mogucdn.com/mlcdn/c45406/171102_6e9id914312d04c2ga7dcdbik3l63_48x48.png" style="width: 48rpx; height: 48rpx"></image>
+  </view>
+  <view class="btn preview {{ subMenu }}" bindtap="preview">
+    <image mode="aspectFit" src="https://s10.mogucdn.com/mlcdn/c45406/171102_6e9l5a435h83daf19ffe143fi68f6_48x48.png" style="width: 48rpx; height: 48rpx"></image>
+  </view>
 </view>
